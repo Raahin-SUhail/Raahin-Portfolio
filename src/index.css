@@ -45,3 +45,67 @@ body {
 ::-webkit-scrollbar-thumb:hover {
     background: #52525b;
 }
+/* A shared motion rhythm keeps the silver interface quiet and responsive. */
+html { scroll-padding-top: 96px; }
+section[id], main { outline: none; }
+section[id] { scroll-margin-top: 0; }
+button, a, input, textarea { -webkit-tap-highlight-color: transparent; }
+button, a { touch-action: manipulation; }
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+    outline: 2px solid #e4e4e7;
+    outline-offset: 5px;
+}
+.skip-link {
+    position: fixed; top: 12px; left: 24px; z-index: 100;
+    padding: 12px 18px; border-radius: 10px;
+    background: #fff; color: #090a0f;
+    transform: translateY(-150%);
+}
+.skip-link:focus { transform: translateY(0); }
+.site-header {
+    background: rgba(9, 10, 15, .86);
+    border-bottom: 1px solid rgba(63, 63, 70, .2);
+    backdrop-filter: blur(16px);
+    transition: background-color 200ms ease, border-color 200ms ease;
+}
+.site-header.is-scrolled { background: rgba(9, 10, 15, .96); border-color: #27272a; }
+.nav-link { position: relative; display: block; padding: 12px 0; font-size: .875rem; color: #a1a1aa; transition: color 180ms ease; }
+.nav-link.is-active, .nav-link:hover { color: #fff; }
+.nav-indicator { position: absolute; height: 2px; background: #e4e4e7; border-radius: 2px; bottom: 4px; left: 0; right: 0; }
+.social-link {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-width: 44px; min-height: 44px; border-radius: 12px;
+    color: #a1a1aa; background: rgba(24, 24, 27, .6); border: 1px solid #27272a;
+    transition: color 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+.mobile-nav-link { display: block; padding: 13px 16px; border-radius: 12px; color: #a1a1aa; }
+.mobile-nav-link[aria-current], .mobile-nav-link:hover { background: #18181b; color: white; }
+.role-rotator { display: grid; overflow: hidden; padding-bottom: 4px; }
+/* Every phrase participates in sizing, preventing layout shifts when roles change. */
+.role-option { grid-area: 1 / 1; align-self: start; text-wrap: balance; }
+.portrait-frame { isolation: isolate; }
+.portrait-image { transition: filter 450ms ease; }
+.availability-pulse { animation: availability 3s ease-in-out infinite; }
+@keyframes availability { 0%, 100% { opacity: .5; } 50% { opacity: 1; } }
+.form-feedback { animation: feedback 200ms ease-out; }
+@keyframes feedback { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+.loading-spinner { width: 14px; height: 14px; border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%; animation: spin 800ms linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (hover: hover) and (pointer: fine) {
+    .social-link:hover { color: white; border-color: #71717a; transform: translateY(-2px); }
+    .portrait-frame:hover .portrait-image { filter: grayscale(0) contrast(1.05); }
+}
+@media (hover: none) {
+    .portrait-image { filter: grayscale(0) contrast(1.05); }
+}
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .social-link:hover { transform: none; }
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+    /* Content is immediately readable, including while-in-view entry states. */
+    main [style*="opacity"] { opacity: 1 !important; transform: none !important; }
+}

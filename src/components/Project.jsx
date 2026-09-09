@@ -37,29 +37,29 @@ const Project = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
+        staggerChildren: 0.08,
       },
     },
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+    hidden: { opacity: 0, y: 18 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
 
   return (
-    <section id="project" className="relative bg-[#090a0f] text-zinc-100 py-28 px-6 overflow-hidden">
+    <section id="project" tabIndex={-1} className="relative bg-[#090a0f] text-zinc-100 py-20 md:py-24 px-6 overflow-hidden">
       {/* Ambient background blur light */}
       <div className="absolute top-1/3 right-10 w-[500px] h-[500px] bg-white/[0.015] rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl w-full mx-auto relative z-10 font-inter">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: -30 }}
+          initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-14"
         >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-zinc-900/90 border border-zinc-800 text-xs font-semibold uppercase tracking-widest text-zinc-400 mb-4 shadow-inner">
             <FaFolderOpen className="text-white" /> Portfolio Showcase
@@ -82,14 +82,14 @@ const Project = () => {
           whileInView="visible"
           viewport={{ once: true }}
           variants={containerVariants}
-          className="grid md:grid-cols-2 gap-8"
+          className="grid md:grid-cols-2 xl:grid-cols-3 gap-6"
         >
           {projects.map((proj, idx) => (
             <motion.div
               key={idx}
               variants={cardVariants}
-              whileHover={{ y: -6 }}
-              className="bg-zinc-900/40 backdrop-blur-md border border-zinc-800/80 rounded-3xl p-8 flex flex-col justify-between hover:border-zinc-500/80 hover:shadow-[0_0_30px_rgba(255,255,255,0.07)] transition-all duration-300 group"
+              whileHover={{ y: -4 }}
+              className="bg-zinc-900/40 border border-zinc-800/80 rounded-3xl p-6 lg:p-7 flex flex-col justify-between hover:border-zinc-500/80 hover:shadow-[0_0_30px_rgba(255,255,255,0.07)] transition-[border-color,background-color,box-shadow,color] duration-200 group"
             >
               <div>
                 {/* Top Badge & Code link icon */}
@@ -102,7 +102,7 @@ const Project = () => {
                     href={proj.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2.5 rounded-xl bg-zinc-800/60 text-zinc-300 hover:text-white hover:bg-zinc-700/80 border border-zinc-700/50 hover:border-zinc-500 transition-all duration-300 shadow-sm"
+                    className="p-2.5 rounded-xl bg-zinc-800/60 text-zinc-300 hover:text-white hover:bg-zinc-700/80 border border-zinc-700/50 hover:border-zinc-500 transition-[border-color,background-color,box-shadow,color] duration-200 shadow-sm"
                     aria-label={`View ${proj.title} on GitHub`}
                   >
                     <FaGithub size={18} />
@@ -118,7 +118,7 @@ const Project = () => {
                 </p>
 
                 {/* Description */}
-                <p className="text-zinc-400 text-sm leading-relaxed mb-6">
+                <p className="text-zinc-400 text-base leading-relaxed mb-6">
                   {proj.description}
                 </p>
               </div>
@@ -141,9 +141,9 @@ const Project = () => {
                     href={proj.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-xs font-bold text-white hover:underline underline-offset-4 tracking-wide"
+                    className="inline-flex min-h-11 items-center gap-2 text-sm font-bold text-white hover:underline underline-offset-4 tracking-wide"
                   >
-                    Source Code <FaExternalLinkAlt className="text-[10px]" />
+                    Source Code <FaExternalLinkAlt className="text-xs" />
                   </a>
                 </div>
               </div>

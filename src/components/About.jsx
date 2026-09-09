@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import {
   FaGraduationCap,
@@ -145,20 +144,20 @@ const About = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.07,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 18 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
 
   return (
     <section
-      id="about"
-      className="relative min-h-screen bg-[#090a0f] text-zinc-100 py-28 px-6 overflow-hidden"
+      id="about" tabIndex={-1}
+      className="relative min-h-screen bg-[#090a0f] text-zinc-100 py-20 md:py-24 px-6 overflow-hidden"
     >
       {/* Background Subtle Gradient Glow */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-white/[0.02] rounded-full blur-3xl pointer-events-none" />
@@ -166,11 +165,11 @@ const About = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: -30 }}
+          initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-14"
         >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-zinc-900/80 border border-zinc-800 text-xs font-semibold uppercase tracking-widest text-zinc-400 mb-4 shadow-inner">
             <FaUserTie className="text-zinc-200" /> Professional Profile
@@ -189,14 +188,14 @@ const About = () => {
         </motion.div>
 
         {/* Education & Experience Section */}
-        <div className="grid lg:grid-cols-2 gap-8 mb-24">
+        <div className="grid lg:grid-cols-2 gap-8 mb-16">
           {/* Education Card */}
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="bg-zinc-900/40 backdrop-blur-md rounded-3xl p-8 border border-zinc-800/80 hover:border-zinc-600/80 transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.06)] group"
+            className="bg-zinc-900/40 rounded-3xl p-8 border border-zinc-800/80 hover:border-zinc-600/80 transition-[border-color,background-color,box-shadow,color] duration-200 hover:shadow-[0_0_30px_rgba(255,255,255,0.06)] group"
           >
             <div className="flex items-center gap-4 mb-6">
               <div className="p-3.5 bg-zinc-800/80 rounded-2xl border border-zinc-700/60 group-hover:border-zinc-500 transition-colors">
@@ -234,11 +233,11 @@ const About = () => {
 
           {/* Experience Card */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="bg-zinc-900/40 backdrop-blur-md rounded-3xl p-8 border border-zinc-800/80 hover:border-zinc-600/80 transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.06)] group"
+            className="bg-zinc-900/40 rounded-3xl p-8 border border-zinc-800/80 hover:border-zinc-600/80 transition-[border-color,background-color,box-shadow,color] duration-200 hover:shadow-[0_0_30px_rgba(255,255,255,0.06)] group"
           >
             <div className="flex items-center gap-4 mb-6">
               <div className="p-3.5 bg-zinc-800/80 rounded-2xl border border-zinc-700/60 group-hover:border-zinc-500 transition-colors">
@@ -273,7 +272,7 @@ const About = () => {
 
         {/* Technical Skills Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
@@ -286,7 +285,7 @@ const About = () => {
         </motion.div>
 
         {/* Skills Grids */}
-        <div className="space-y-14">
+        <div className="space-y-10">
           {/* Programming Languages */}
           <motion.div
             initial="hidden"
@@ -304,8 +303,8 @@ const About = () => {
                 <motion.div
                   key={index}
                   variants={itemVariants}
-                  whileHover={{ y: -4, scale: 1.02 }}
-                  className="bg-zinc-900/60 border border-zinc-800/80 rounded-2xl p-5 flex flex-col items-center justify-center gap-3 hover:border-zinc-500 hover:shadow-[0_0_20px_rgba(255,255,255,0.08)] transition-all duration-300 group cursor-pointer"
+
+                  className="bg-zinc-900/60 border border-zinc-800/80 rounded-2xl p-5 flex flex-col items-center justify-center gap-3 hover:border-zinc-500  transition-[border-color,background-color,box-shadow,color] duration-200 group"
                 >
                   {skill.icon}
                   <span className="text-sm font-medium text-zinc-300 group-hover:text-white transition-colors">{skill.name}</span>
@@ -331,8 +330,8 @@ const About = () => {
                 <motion.div
                   key={index}
                   variants={itemVariants}
-                  whileHover={{ y: -4, scale: 1.02 }}
-                  className="bg-zinc-900/60 border border-zinc-800/80 rounded-2xl p-5 flex flex-col items-center justify-center gap-3 hover:border-zinc-500 hover:shadow-[0_0_20px_rgba(255,255,255,0.08)] transition-all duration-300 group cursor-pointer"
+
+                  className="bg-zinc-900/60 border border-zinc-800/80 rounded-2xl p-5 flex flex-col items-center justify-center gap-3 hover:border-zinc-500  transition-[border-color,background-color,box-shadow,color] duration-200 group"
                 >
                   {item.icon}
                   <span className="text-sm font-medium text-zinc-300 group-hover:text-white transition-colors">{item.name}</span>
@@ -353,13 +352,13 @@ const About = () => {
               <h4 className="text-xl font-semibold text-zinc-200">Databases</h4>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               {databases.map((db, index) => (
                 <motion.div
                   key={index}
                   variants={itemVariants}
-                  whileHover={{ y: -4, scale: 1.02 }}
-                  className="bg-zinc-900/60 border border-zinc-800/80 rounded-2xl p-5 flex flex-col items-center justify-center gap-3 hover:border-zinc-500 hover:shadow-[0_0_20px_rgba(255,255,255,0.08)] transition-all duration-300 group cursor-pointer"
+
+                  className="bg-zinc-900/60 border border-zinc-800/80 rounded-2xl p-5 flex flex-col items-center justify-center gap-3 hover:border-zinc-500  transition-[border-color,background-color,box-shadow,color] duration-200 group"
                 >
                   {db.icon}
                   <span className="text-sm font-medium text-zinc-300 group-hover:text-white transition-colors">{db.name}</span>
@@ -385,8 +384,8 @@ const About = () => {
                 <motion.div
                   key={index}
                   variants={itemVariants}
-                  whileHover={{ y: -4, scale: 1.02 }}
-                  className="bg-zinc-900/60 border border-zinc-800/80 rounded-2xl p-5 flex flex-col items-center justify-center gap-3 hover:border-zinc-500 hover:shadow-[0_0_20px_rgba(255,255,255,0.08)] transition-all duration-300 group cursor-pointer"
+
+                  className="bg-zinc-900/60 border border-zinc-800/80 rounded-2xl p-5 flex flex-col items-center justify-center gap-3 hover:border-zinc-500  transition-[border-color,background-color,box-shadow,color] duration-200 group"
                 >
                   {tool.icon}
                   <span className="text-sm font-medium text-zinc-300 group-hover:text-white transition-colors text-center">{tool.name}</span>
@@ -412,8 +411,8 @@ const About = () => {
                 <motion.div
                   key={index}
                   variants={itemVariants}
-                  whileHover={{ y: -4, scale: 1.02 }}
-                  className="bg-zinc-900/60 border border-zinc-800/80 rounded-2xl p-5 flex flex-col items-center justify-center gap-3 hover:border-zinc-500 hover:shadow-[0_0_20px_rgba(255,255,255,0.08)] transition-all duration-300 group cursor-pointer"
+
+                  className="bg-zinc-900/60 border border-zinc-800/80 rounded-2xl p-5 flex flex-col items-center justify-center gap-3 hover:border-zinc-500  transition-[border-color,background-color,box-shadow,color] duration-200 group"
                 >
                   {tool.icon}
                   <span className="text-sm font-medium text-zinc-300 group-hover:text-white transition-colors">{tool.name}</span>
@@ -425,9 +424,9 @@ const About = () => {
 
         {/* Soft Skills Section */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
           viewport={{ once: true }}
           className="mt-20 pt-12 border-t border-zinc-800/80 text-center"
         >
@@ -440,8 +439,8 @@ const About = () => {
             {softSkills.map((skill, index) => (
               <motion.span
                 key={index}
-                whileHover={{ scale: 1.05, y: -2 }}
-                className="px-5 py-2.5 rounded-full bg-zinc-900/80 border border-zinc-800 text-zinc-300 text-sm font-medium hover:border-white hover:text-white hover:bg-zinc-800/90 hover:shadow-[0_0_15px_rgba(255,255,255,0.12)] transition-all duration-300 cursor-pointer shadow-sm"
+
+                className="px-5 py-2.5 rounded-full bg-zinc-900/80 border border-zinc-800 text-zinc-300 text-sm font-medium hover:border-zinc-600 hover:text-white hover:bg-zinc-800/90  transition-[border-color,background-color,box-shadow,color] duration-200 shadow-sm"
               >
                 {skill}
               </motion.span>
