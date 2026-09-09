@@ -71,30 +71,30 @@ const Certifications = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.07,
       },
     },
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 25 },
+    hidden: { opacity: 0, y: 18 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
 
   return (
-    <section id="certifications" className="relative bg-[#090a0f] text-zinc-100 py-28 px-6 overflow-hidden">
+    <section id="certifications" tabIndex={-1} className="relative bg-[#090a0f] text-zinc-100 py-20 md:py-24 px-6 overflow-hidden">
       {/* Background Soft Glow */}
       <div className="absolute top-1/4 left-1/3 w-[500px] h-[500px] bg-white/[0.015] rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl w-full mx-auto relative z-10 font-inter">
-        
+
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: -30 }}
+          initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-14"
         >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-zinc-900/90 border border-zinc-800 text-xs font-semibold uppercase tracking-widest text-zinc-400 mb-4 shadow-inner">
             <FaAward className="text-white" /> Verified Credentials
@@ -123,8 +123,8 @@ const Certifications = () => {
             <motion.div
               key={index}
               variants={cardVariants}
-              whileHover={{ y: -6 }}
-              className={`bg-zinc-900/40 backdrop-blur-md border rounded-3xl p-7 flex flex-col justify-between transition-all duration-300 group shadow-lg ${
+              whileHover={{ y: -4 }}
+              className={`bg-zinc-900/40 border rounded-3xl p-7 flex flex-col justify-between transition-[border-color,background-color,box-shadow,color] duration-200 group shadow-lg ${
                 cert.featured
                   ? "border-zinc-700/90 hover:border-zinc-400 shadow-[0_0_25px_rgba(255,255,255,0.04)] bg-gradient-to-b from-zinc-900/70 to-zinc-900/30"
                   : "border-zinc-800/80 hover:border-zinc-600/80 hover:shadow-[0_0_20px_rgba(255,255,255,0.05)]"
@@ -169,9 +169,9 @@ const Certifications = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`View ${cert.title} Certificate`}
-                  className="w-full inline-flex items-center justify-center gap-2.5 bg-zinc-900/80 hover:bg-white text-zinc-300 hover:text-zinc-950 border border-zinc-700/80 hover:border-white px-5 py-3 rounded-xl text-xs font-bold transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] focus:outline-none focus:ring-2 focus:ring-white/40"
+                  className="w-full inline-flex items-center justify-center gap-2.5 bg-zinc-900/80 hover:bg-white text-zinc-300 hover:text-zinc-950 border border-zinc-700/80 hover:border-white px-5 py-3 rounded-xl text-sm font-bold transition-[border-color,background-color,box-shadow,color] duration-200 hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] focus:outline-none focus:ring-2 focus:ring-white/40"
                 >
-                  View Certificate <FaExternalLinkAlt className="text-[10px]" />
+                  View Certificate <FaExternalLinkAlt className="text-xs" />
                 </a>
               </div>
             </motion.div>
